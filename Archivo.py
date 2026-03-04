@@ -69,3 +69,31 @@ while True:
 
                         usuarioEcontrado["materias"][nombreMateria] = listaDeNotas
                     print("\n¡Todas las notas han sido cargadas!")
+                    
+                elif opcionEstudiante == "2":
+                    print("\n--- REPORTE ACADÉMICO ---")
+                    sumaTotalCarrera = 0
+                    cuentaMaterias = 0
+                    
+                    for nombreMateria, notas in usuarioEcontrado["materias"].items():
+                        if len(notas) == 0:
+                            print(f"- {nombreMateria}: Sin notas todavía.")
+                        else:
+                            promedioMateria = sum(notas) / 3
+                            print(f"- {nombreMateria}: Promedio de {promedioMateria:.2f}")
+                            sumaTotalCarrera = sumaTotalCarrera + promedioMateria
+                            cuentaMaterias = cuentaMaterias + 1
+                
+                    if cuentaMaterias > 0:
+                        promedioFinal = sumaTotalCarrera / cuentaMaterias
+                        print(f"\n>>> PROMEDIO GENERAL: {promedioFinal:.2f}")
+
+                elif opcionEstudiante == "3":
+                    break
+
+        else:
+            print("Correo o contraseña incorrectos.")
+
+    elif opcion == "3":
+        print("Hasta pronto!")
+        break
